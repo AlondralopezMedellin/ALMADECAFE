@@ -1,0 +1,51 @@
+
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+// Crear la colección de bebidas con validación
+db.createCollection('bebidas', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto bebidas',
+            required: ['id_bebida','nombre_bebida', 'tipo_bebida', 'precio_bebida'],
+            properties: {
+                id_bebida:{
+                    bsonType:'int',
+                    description: 'ID De la Bebida'
+                },
+                nombre_bebida: {
+                    bsonType: 'string',
+                    description: 'Nombre de la bebida',
+                    minLength: 1,
+                    maxLength: 50
+                },
+                tipo_bebida: {
+                    enum: ['CALIENTE', 'FRÍA'],
+                    description: 'Tipo de bebida (CALIENTE o FRÍA)'
+                },
+                precio_bebida: {
+                    bsonType: 'decimal',
+                    description: 'Precio de la bebida',
+                    minimum: 10
+                },
+                descripcion_bebida: {
+                    bsonType: 'string',
+                    description: 'Descripción de la bebida',
+                    maxLength: 100
+                },
+                forma_de_preparacion: {
+                    bsonType: 'string',
+                    description: 'Forma de preparación de la bebida',
+                    maxLength: 100
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice para asegurar que los nombres de las bebidas no se repitan
+db.bebidas.createIndex(
+    {id_bebida: 1}, // Indexar por nombre de bebida
+    {unique: true} // El nombre de la bebida debe ser único
+);
