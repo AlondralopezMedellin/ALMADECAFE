@@ -1,1 +1,3 @@
 ARCHIVO PARA COLOCAR CUALQUIER COMENTARIO NECESARIO DEL PROYECTO
+
+Primero necesitamos hacer las tablas principales 
