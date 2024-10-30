@@ -1,0 +1,28 @@
+
+use("Alma_de_Cafe");
+db.pedidos.insertOne({
+    id_pedido: 1,
+    total: NumberDecimal("150.00"),
+    subtotal: NumberDecimal("130.00"),
+    dia_pedido: 26,
+    mes_pedido: 10,
+    anio_pedido: 2024,
+    estatus: "ACTIVO",
+    empleado: {
+        id_empleado: 101,
+        nombre: "Juan Perez",
+        puesto: "Mesero"
+    },
+    mesa: {
+        id_mesa: 5,
+        capacidad: 4
+    },
+    postres: [
+        { id_postre: 1, nombre_postre: "Pastel de chocolate", cantidad: 2, precio: NumberDecimal("25.00") },
+        { id_postre: 2, nombre_postre: "Cheesecake", cantidad: 1, precio: NumberDecimal("30.00") }
+    ],
+    bebidas: [
+        { id_bebida: 1, nombre_bebida: "Café Americano", cantidad: 2, precio: NumberDecimal("10.00") },
+        { id_bebida: 2, nombre_bebida: "Té Verde", cantidad: 1, precio: NumberDecimal("15.00") }
+    ]
+});

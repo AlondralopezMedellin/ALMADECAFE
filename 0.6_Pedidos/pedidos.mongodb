@@ -1,0 +1,141 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+// Crear la colección pedidos con validación
+db.createCollection('pedidos', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto pedidos',
+            required: ['id_pedido', 'total', 'subtotal', 'dia_pedido', 'mes_pedido', 'anio_pedido', 'estatus', 'empleado', 'mesa', 'postres', 'bebidas'],
+            properties: {
+                id_pedido: {
+                    bsonType: 'int',
+                    description: 'ID del pedido'
+                },
+                total: {
+                    bsonType: 'decimal',
+                    description: 'Total del pedido'
+                },
+                subtotal: {
+                    bsonType: 'decimal',
+                    description: 'Subtotal del pedido'
+                },
+                dia_pedido: {
+                    bsonType: 'int',
+                    minimum: 1,
+                    maximum: 31,
+                    description: 'Día del pedido (1-31)'
+                },
+                mes_pedido: {
+                    bsonType: 'int',
+                    minimum: 1,
+                    maximum: 12,
+                    description: 'Mes del pedido (1-12)'
+                },
+                anio_pedido: {
+                    bsonType: 'int',
+                    minimum: 2022,
+                    description: 'Año del pedido, entre 2022 y el año actual'
+                },
+                estatus: {
+                    bsonType: 'string',
+                    enum: ['ACTIVO', 'PROCESO', 'TERMINADO'],
+                    description: 'Estatus del pedido'
+                },
+                empleado: {
+                    bsonType: 'object',
+                    required: ['id_empleado', 'nombre', 'puesto'],
+                    description: 'Información del empleado',
+                    properties: {
+                        id_empleado: {
+                            bsonType: 'int',
+                            description: 'ID del empleado'
+                        },
+                        nombre: {
+                            bsonType: 'string',
+                            description: 'Nombre del empleado'
+                        },
+                        puesto: {
+                            bsonType: 'string',
+                            description: 'Puesto del empleado'
+                        }
+                    }
+                },
+                mesa: {
+                    bsonType: 'object',
+                    required: ['id_mesa', 'capacidad'],
+                    description: 'Información de la mesa',
+                    properties: {
+                        id_mesa: {
+                            bsonType: 'int',
+                            description: 'ID de la mesa'
+                        },
+                        capacidad: {
+                            bsonType: 'int',
+                            description: 'Capacidad de la mesa'
+                        }
+                    }
+                },
+                postres: {
+                    bsonType: 'array',
+                    description: 'Lista de postres en el pedido',
+                    items: {
+                        bsonType: 'object',
+                        required: ['id_postre', 'nombre_postre', 'cantidad', 'precio'],
+                        properties: {
+                            id_postre: {
+                                bsonType: 'int',
+                                description: 'ID del postre'
+                            },
+                            nombre_postre: {
+                                bsonType: 'string',
+                                description: 'Nombre del postre'
+                            },
+                            cantidad: {
+                                bsonType: 'int',
+                                description: 'Cantidad de postres'
+                            },
+                            precio: {
+                                bsonType: 'decimal',
+                                description: 'Precio del postre'
+                            }
+                        }
+                    }
+                },
+                bebidas: {
+                    bsonType: 'array',
+                    description: 'Lista de bebidas en el pedido',
+                    items: {
+                        bsonType: 'object',
+                        required: ['id_bebida', 'nombre_bebida', 'cantidad', 'precio'],
+                        properties: {
+                            id_bebida: {
+                                bsonType: 'int',
+                                description: 'ID de la bebida'
+                            },
+                            nombre_bebida: {
+                                bsonType: 'string',
+                                description: 'Nombre de la bebida'
+                            },
+                            cantidad: {
+                                bsonType: 'int',
+                                description: 'Cantidad de bebidas'
+                            },
+                            precio: {
+                                bsonType: 'decimal',
+                                description: 'Precio de la bebida'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice único para id_recurso
+db.pedidos.createIndex(
+    {id_pedido: 1},
+    {unique: true}
+);

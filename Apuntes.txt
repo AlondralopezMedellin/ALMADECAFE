@@ -3,3 +3,10 @@ ARCHIVO PARA COLOCAR CUALQUIER COMENTARIO NECESARIO DEL PROYECTO
 Primero necesitamos hacer las tablas principales 
 DANIEL ORLANDO CEJA OLLOQUI
 CLONE EL REPOSITORIO BUENAS TARDES EQUIPO
+-------------------------------------
+Alondra Alejandra Lopez Medellin 
+Enterada  daniel buena tarde 
+Modifique la colleccion de bebidas colocandole un objeto anidado array ingredientes 
+29/10/2024
+-------------------------------------
+
