@@ -1,0 +1,4 @@
+
+//usar la base de datps
+use("Alma_de_Cafe");
+db.bebidas.drop()

@@ -1,12 +1,16 @@
-// Usar la base de datos
-use("Alma_de_Cafe");
 
-// Insertar un registro de bebida en la colección
+//usar la base de datos
+use("Alma_de_Cafe");
 db.bebidas.insertOne({
     id_bebida: 1,
-    nombre_bebida: "Café Americano",
+    nombre_bebida: "Café Mocha",
     tipo_bebida: "CALIENTE",
-    precio_bebida: NumberDecimal("30.00"),
-    descripcion_bebida: "Café preparado con agua caliente y granos de café molidos.",
-    forma_de_preparacion: "Se mezcla agua caliente con café molido en una cafetera."
-});
+    precio_bebida: NumberDecimal(35.00),
+    descripcion_bebida: "Café con chocolate y leche",
+    forma_de_preparacion: "Mezclar espresso con chocolate caliente y leche espumosa",
+    ingredientes: [
+        { id_ingrediente: 101, nombre: "Café Espresso", sabor: "Amargo" ,cantidad:"2 shot",especificaciones:'Colocar despacio'},
+        { id_ingrediente: 102, nombre: "Chocolate", sabor: "Dulce" ,cantidad:'2 cucharadas',especificaciones:'Disolver primero'},
+        { id_ingrediente: 103, nombre: "Leche", sabor: "Suave", cantidad:'4 onzas',especificaciones:'Debe estar fria'}
+    ]
+})

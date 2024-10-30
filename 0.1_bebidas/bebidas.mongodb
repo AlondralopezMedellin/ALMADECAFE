@@ -1,7 +1,5 @@
-
 // Usar la base de datos
 use("Alma_de_Cafe");
-
 // Crear la colección de bebidas con validación
 db.createCollection('bebidas', {
     validator: {
@@ -10,9 +8,9 @@ db.createCollection('bebidas', {
             title: 'Validación del objeto bebidas',
             required: ['id_bebida','nombre_bebida', 'tipo_bebida', 'precio_bebida'],
             properties: {
-                id_bebida:{
-                    bsonType:'int',
-                    description: 'ID De la Bebida'
+                id_bebida: {
+                    bsonType: 'int',
+                    description: 'ID de la bebida'
                 },
                 nombre_bebida: {
                     bsonType: 'string',
@@ -38,14 +36,48 @@ db.createCollection('bebidas', {
                     bsonType: 'string',
                     description: 'Forma de preparación de la bebida',
                     maxLength: 100
+                },
+                ingredientes: {
+                    bsonType: 'array',
+                    description: 'Lista de ingredientes',
+                    items: {
+                        bsonType: 'object',
+                        required: ['id_ingrediente', 'nombre', 'sabor'],
+                        properties: {
+                            id_ingrediente: {
+                                bsonType: 'int',
+                                description: 'ID del ingrediente'
+                            },
+                            nombre: {
+                                bsonType: 'string',
+                                description: 'Nombre del ingrediente',
+                                minLength: 1,
+                                maxLength: 50
+                            },
+                            sabor: {
+                                bsonType: 'string',
+                                description: 'Sabor del ingrediente',
+                                minLength: 1,
+                                maxLength: 50
+                            },
+                            cantidad:{
+                                bsonType: 'string',
+                                description: 'Cantidad de ingrediente requirido'
+                            },
+                            especificaciones:{
+                                 bsonType: 'string',
+                                description: 'Especificaciones de ese ingrediente para la bebida'
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 });
 
-// Crear un índice para asegurar que los nombres de las bebidas no se repitan
+// Crear un índice único en id_bebida
 db.bebidas.createIndex(
-    {id_bebida: 1}, // Indexar por nombre de bebida
-    {unique: true} // El nombre de la bebida debe ser único
+    { id_bebida: 1 }, 
+    { unique: true } 
 );
