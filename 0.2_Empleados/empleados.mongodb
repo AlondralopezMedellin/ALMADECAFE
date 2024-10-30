@@ -1,0 +1,60 @@
+
+use("Alma_de_Cafe");
+
+db.createCollection("empleados", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Validación del objeto empleados",
+            required: ["id_empleado", "nombre_empleado", "apellido_paterno_emp", "apellido_materno_emp", "puesto"],
+            properties: {
+                id_empleado: {
+                    bsonType: "int",
+                    description: "ID único del empleado"
+                },
+                nombre_empleado: {
+                    bsonType: "string",
+                    description: "Nombre del empleado",
+                    minLength: 1,
+                    maxLength: 50
+                },
+                apellido_paterno_emp: {
+                    bsonType: "string",
+                    description: "Apellido paterno del empleado",
+                    minLength: 1,
+                    maxLength: 35
+                },
+                apellido_materno_emp: {
+                    bsonType: "string",
+                    description: "Apellido materno del empleado",
+                    minLength: 1,
+                    maxLength: 35
+                },
+                puesto: {
+                    bsonType: "object",
+                    title: "Puesto del empleado",
+                    required: ["id_puesto", "nombre_puesto", "descripcion", "requisitos", "jornada_laboral", "salario"],
+                    properties: {
+                        id_puesto: {
+                            bsonType: "int",
+                            description: "ID único del puesto"
+                        },
+                        nombre_puesto: {
+                            bsonType: "string",
+                            description: "Nombre del puesto",
+                            minLength: 1,
+                            maxLength: 50
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+db.empleados.createIndex(
+    {id_puesto: 1}, 
+    {unique: true} 
+);
+
