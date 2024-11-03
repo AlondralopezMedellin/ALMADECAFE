@@ -9,4 +9,5 @@ Enterada  daniel buena tarde
 Modifique la colleccion de bebidas colocandole un objeto anidado array ingredientes 
 29/10/2024
 -------------------------------------
-
+Alondra Alejandra Lopez Medellin
+Modifique las colecciones de pedidos y empleados y realice pruebas para pasar los json de sql a mongodb
