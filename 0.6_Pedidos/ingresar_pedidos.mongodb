@@ -1,28 +1,30 @@
-
 use("Alma_de_Cafe");
-db.pedidos.insertOne({
-    id_pedido: 1,
-    total: NumberDecimal("150.00"),
-    subtotal: NumberDecimal("130.00"),
-    dia_pedido: 26,
-    mes_pedido: 10,
-    anio_pedido: 2024,
-    estatus: "ACTIVO",
-    empleado: {
-        id_empleado: 101,
-        nombre: "Juan Perez",
-        puesto: "Mesero"
-    },
-    mesa: {
-        id_mesa: 5,
-        capacidad: 4
-    },
-    postres: [
-        { id_postre: 1, nombre_postre: "Pastel de chocolate", cantidad: 2, precio: NumberDecimal("25.00") },
-        { id_postre: 2, nombre_postre: "Cheesecake", cantidad: 1, precio: NumberDecimal("30.00") }
-    ],
-    bebidas: [
-        { id_bebida: 1, nombre_bebida: "Café Americano", cantidad: 2, precio: NumberDecimal("10.00") },
-        { id_bebida: 2, nombre_bebida: "Té Verde", cantidad: 1, precio: NumberDecimal("15.00") }
-    ]
-});
+
+db.pedidos.insertOne(
+    {
+        "id_pedido": 4,
+        "total": NumberDecimal("150.0"),
+        "subtotal": NumberDecimal("130.0"),
+        "dia_pedido": 11,
+        "mes_pedido": 9,
+        "anio_pedido": 2024,
+        "estatus": "TERMINADO",
+        "empleado": {
+            "id_empleado": 2,
+            "nombre": "Juan",
+            "puesto": "Gerente"
+        },
+        "mesa": {
+            "id_mesa": 12,
+            "capacidad": 6
+        },
+        "postres": [
+            {"id_postre": 12, "nombre_postre": "Galleta de chispas de chocolate", "cantidad": 3, "precio": NumberDecimal("38")},
+            {"id_postre": 3, "nombre_postre": "Brownie de chocolate", "cantidad": 2, "precio": NumberDecimal("40")}
+        ],
+        "bebidas": [
+            {"id_bebida": 4, "nombre_bebida": "Frapuccino", "cantidad": 6, "precio": NumberDecimal("55")},
+            {"id_bebida": 3, "nombre_bebida": "Té Verde", "cantidad": 7, "precio": NumberDecimal("30")}
+        ]
+    }
+);

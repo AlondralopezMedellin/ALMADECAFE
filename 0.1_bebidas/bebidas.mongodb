@@ -1,12 +1,14 @@
-// Usar la base de datos
+// Seleccionar la base de datos
 use("Alma_de_Cafe");
-// Crear la colección de bebidas con validación
+
+
+// Crear la colección 'bebidas' con validación de esquema
 db.createCollection('bebidas', {
     validator: {
         $jsonSchema: {
             bsonType: 'object',
             title: 'Validación del objeto bebidas',
-            required: ['id_bebida','nombre_bebida', 'tipo_bebida', 'precio_bebida'],
+            required: ['id_bebida', 'nombre_bebida', 'tipo_bebida', 'precio_bebida'],
             properties: {
                 id_bebida: {
                     bsonType: 'int',
@@ -23,7 +25,7 @@ db.createCollection('bebidas', {
                     description: 'Tipo de bebida (CALIENTE o FRÍA)'
                 },
                 precio_bebida: {
-                    bsonType: 'decimal',
+                    bsonType: 'double', 
                     description: 'Precio de la bebida',
                     minimum: 10
                 },
@@ -60,12 +62,12 @@ db.createCollection('bebidas', {
                                 minLength: 1,
                                 maxLength: 50
                             },
-                            cantidad:{
-                                bsonType: 'string',
-                                description: 'Cantidad de ingrediente requirido'
+                            cantidad: {
+                                bsonType: 'int',
+                                description: 'Cantidad de ingrediente requerido'
                             },
-                            especificaciones:{
-                                 bsonType: 'string',
+                            especificaciones: {
+                                bsonType: 'string',
                                 description: 'Especificaciones de ese ingrediente para la bebida'
                             }
                         }
@@ -78,6 +80,7 @@ db.createCollection('bebidas', {
 
 // Crear un índice único en id_bebida
 db.bebidas.createIndex(
-    { id_bebida: 1 }, 
-    { unique: true } 
+    { id_bebida: 1 },
+    { unique: true }
 );
+

@@ -1,13 +1,16 @@
 // Usar la base de datos
 use("Alma_de_Cafe");
 
+// Eliminar la colección si ya existe
+db.pedidos.drop(); 
+
 // Crear la colección pedidos con validación
 db.createCollection('pedidos', {
     validator: {
         $jsonSchema: {
             bsonType: 'object',
             title: 'Validación del objeto pedidos',
-            required: ['id_pedido', 'total', 'subtotal', 'dia_pedido', 'mes_pedido', 'anio_pedido', 'estatus', 'empleado', 'mesa', 'postres', 'bebidas'],
+            required: ['id_pedido', 'total', 'subtotal', 'dia_pedido', 'mes_pedido', 'anio_pedido', 'estatus', 'empleado', 'mesa'], 
             properties: {
                 id_pedido: {
                     bsonType: 'int',
@@ -134,8 +137,8 @@ db.createCollection('pedidos', {
     }
 });
 
-// Crear un índice único para id_recurso
+// Crear un índice único para id_pedido
 db.pedidos.createIndex(
-    {id_pedido: 1},
-    {unique: true}
+    { id_pedido: 1 },
+    { unique: true }
 );

@@ -1,6 +1,6 @@
 
 use("Alma_de_Cafe");
-
+db.empleados.drop()
 db.createCollection("empleados", {
     validator: {
         $jsonSchema: {
@@ -33,7 +33,7 @@ db.createCollection("empleados", {
                 puesto: {
                     bsonType: "object",
                     title: "Puesto del empleado",
-                    required: ["id_puesto", "nombre_puesto", "descripcion", "requisitos", "jornada_laboral", "salario"],
+                    required: ["id_puesto", "nombre_puesto"],
                     properties: {
                         id_puesto: {
                             bsonType: "int",
@@ -54,7 +54,6 @@ db.createCollection("empleados", {
 
 
 db.empleados.createIndex(
-    {id_puesto: 1}, 
+    {id_empleado: 1}, 
     {unique: true} 
 );
-

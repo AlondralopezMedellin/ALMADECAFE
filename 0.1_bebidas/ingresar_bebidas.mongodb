@@ -1,16 +1,127 @@
 
 //usar la base de datos
 use("Alma_de_Cafe");
-db.bebidas.insertOne({
-    id_bebida: 1,
-    nombre_bebida: "Café Mocha",
-    tipo_bebida: "CALIENTE",
-    precio_bebida: NumberDecimal(35.00),
-    descripcion_bebida: "Café con chocolate y leche",
-    forma_de_preparacion: "Mezclar espresso con chocolate caliente y leche espumosa",
-    ingredientes: [
-        { id_ingrediente: 101, nombre: "Café Espresso", sabor: "Amargo" ,cantidad:"2 shot",especificaciones:'Colocar despacio'},
-        { id_ingrediente: 102, nombre: "Chocolate", sabor: "Dulce" ,cantidad:'2 cucharadas',especificaciones:'Disolver primero'},
-        { id_ingrediente: 103, nombre: "Leche", sabor: "Suave", cantidad:'4 onzas',especificaciones:'Debe estar fria'}
-    ]
-})
+db.bebidas.insertMany([
+    {
+        "id_bebida": 1,
+        "nombre_bebida": "Latte",
+        "tipo_bebida": "CALIENTE",
+        "precio_bebida": 45.0,
+        "descripcion_bebida": "Café con leche espumosa",
+        "forma_de_preparacion": "Añadir espresso y leche espumosa",
+        "ingredientes": [
+            { "id_ingrediente": 11, "nombre": "Café", "sabor": "AMARGO", "cantidad": 1, "especificaciones": "1 shot de espresso" },
+            { "id_ingrediente": 12, "nombre": "Leche", "sabor": "CREMOSO", "cantidad": 1, "especificaciones": "200 ml de leche" }
+        ]
+    },
+    {
+        "id_bebida": 2,
+        "nombre_bebida": "Capuchino",
+        "tipo_bebida": "CALIENTE",
+        "precio_bebida": 48.0,
+        "descripcion_bebida": "Café con leche espumosa y canela",
+        "forma_de_preparacion": "Mezclar espresso, leche y espolvorear canela",
+        "ingredientes": [
+            { "id_ingrediente": 11, "nombre": "Café", "sabor": "AMARGO", "cantidad": 1, "especificaciones": "1 shot de espresso" },
+            { "id_ingrediente": 12, "nombre": "Leche", "sabor": "CREMOSO", "cantidad": 1, "especificaciones": "150 ml de leche" },
+            { "id_ingrediente": 13, "nombre": "Canela", "sabor": "DULCE", "cantidad": 1, "especificaciones": "Espolvorear al gusto" }
+        ]
+    },
+    {
+        "id_bebida": 3,
+        "nombre_bebida": "Espresso",
+        "tipo_bebida": "CALIENTE",
+        "precio_bebida": 30.0,
+        "descripcion_bebida": "Concentrado de café puro",
+        "forma_de_preparacion": "Preparar un shot de espresso",
+        "ingredientes": [
+            { "id_ingrediente": 11, "nombre": "Café", "sabor": "FUERTE", "cantidad": 1, "especificaciones": "1 shot de espresso" }
+        ]
+    },
+    {
+        "id_bebida": 4,
+        "nombre_bebida": "Té Verde",
+        "tipo_bebida": "CALIENTE",
+        "precio_bebida": 28.0,
+        "descripcion_bebida": "Té verde caliente y suave",
+        "forma_de_preparacion": "Infusionar té en agua caliente",
+        "ingredientes": [
+            { "id_ingrediente": 14, "nombre": "Té Verde", "sabor": "HERBAL", "cantidad": 1, "especificaciones": "1 bolsita de té verde" }
+        ]
+    },
+    {
+        "id_bebida": 5,
+        "nombre_bebida": "Frappé de Vainilla",
+        "tipo_bebida": "FRÍA",
+        "precio_bebida": 50.0,
+        "descripcion_bebida": "Bebida helada con sabor a vainilla",
+        "forma_de_preparacion": "Licuar leche, hielo y vainilla",
+        "ingredientes": [
+            { "id_ingrediente": 12, "nombre": "Leche", "sabor": "CREMOSO", "cantidad": 1, "especificaciones": "200 ml de leche" },
+            { "id_ingrediente": 15, "nombre": "Vainilla", "sabor": "DULCE", "cantidad": 1, "especificaciones": "Extracto de vainilla" }
+        ]
+    },
+    {
+        "id_bebida": 6,
+        "nombre_bebida": "Smoothie de Fresa",
+        "tipo_bebida": "FRÍA",
+        "precio_bebida": 52.0,
+        "descripcion_bebida": "Smoothie refrescante de fresa",
+        "forma_de_preparacion": "Licuar fresas, leche y hielo",
+        "ingredientes": [
+            { "id_ingrediente": 16, "nombre": "Fresas", "sabor": "DULCE", "cantidad": 5, "especificaciones": "Fresas frescas" },
+            { "id_ingrediente": 12, "nombre": "Leche", "sabor": "CREMOSO", "cantidad": 1, "especificaciones": "150 ml de leche" }
+        ]
+    },
+    {
+        "id_bebida": 7,
+        "nombre_bebida": "Chocolate Caliente",
+        "tipo_bebida": "CALIENTE",
+        "precio_bebida": 40.0,
+        "descripcion_bebida": "Chocolate caliente y cremoso",
+        "forma_de_preparacion": "Mezclar chocolate en leche caliente",
+        "ingredientes": [
+            { "id_ingrediente": 17, "nombre": "Chocolate", "sabor": "DULCE", "cantidad": 3, "especificaciones": "3 cucharadas de chocolate en polvo" },
+            { "id_ingrediente": 12, "nombre": "Leche", "sabor": "CREMOSO", "cantidad": 1, "especificaciones": "200 ml de leche" }
+        ]
+    },
+    {
+        "id_bebida": 8,
+        "nombre_bebida": "Agua de Limón",
+        "tipo_bebida": "FRÍA",
+        "precio_bebida": 25.0,
+        "descripcion_bebida": "Agua fresca de limón natural",
+        "forma_de_preparacion": "Mezclar agua, limón y azúcar",
+        "ingredientes": [
+            { "id_ingrediente": 18, "nombre": "Limón", "sabor": "ÁCIDO", "cantidad": 2, "especificaciones": "Jugo de dos limones" },
+            { "id_ingrediente": 19, "nombre": "Agua", "sabor": "NEUTRO", "cantidad": 1, "especificaciones": "500 ml de agua" },
+            { "id_ingrediente": 20, "nombre": "Azúcar", "sabor": "DULCE", "cantidad": 2, "especificaciones": "2 cucharadas de azúcar" }
+        ]
+    },
+    {
+        "id_bebida": 9,
+        "nombre_bebida": "Limonada de Menta",
+        "tipo_bebida": "FRÍA",
+        "precio_bebida": 30.0,
+        "descripcion_bebida": "Limonada refrescante con menta",
+        "forma_de_preparacion": "Mezclar agua, limón y hojas de menta",
+        "ingredientes": [
+            { "id_ingrediente": 18, "nombre": "Limón", "sabor": "ÁCIDO", "cantidad": 2, "especificaciones": "Jugo de dos limones" },
+            { "id_ingrediente": 19, "nombre": "Agua", "sabor": "NEUTRO", "cantidad": 1, "especificaciones": "500 ml de agua" },
+            { "id_ingrediente": 21, "nombre": "Menta", "sabor": "FRESCO", "cantidad": 5, "especificaciones": "5 hojas de menta" }
+        ]
+    },
+    {
+        "id_bebida": 10,
+        "nombre_bebida": "Mocha",
+        "tipo_bebida": "CALIENTE",
+        "precio_bebida": 50.0,
+        "descripcion_bebida": "Café con leche y chocolate",
+        "forma_de_preparacion": "Mezclar espresso, leche y chocolate",
+        "ingredientes": [
+            { "id_ingrediente": 11, "nombre": "Café", "sabor": "AMARGO", "cantidad": 1, "especificaciones": "1 shot de espresso" },
+            { "id_ingrediente": 12, "nombre": "Leche", "sabor": "CREMOSO", "cantidad": 1, "especificaciones": "150 ml de leche" },
+            { "id_ingrediente": 17, "nombre": "Chocolate", "sabor": "DULCE", "cantidad": 2, "especificaciones": "2 cucharadas de chocolate en polvo" }
+        ]
+    }
+]);

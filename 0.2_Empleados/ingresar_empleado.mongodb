@@ -1,12 +1,5 @@
 
 use("Alma_de_Cafe");
-db.empleados.insertOne({
-    id_empleado: 1,
-    nombre_empleado: "Juan",
-    apellido_paterno_emp: "Pérez",
-    apellido_materno_emp: "López",
-    puesto: {
-        id_puesto: 101,
-        nombre_puesto: "Barista"
-    }
-});
+db.empleados.insertOne(
+    {"id_empleado":2,"nombre_empleado":"Juan","apellido_paterno_emp":"Pérez","apellido_materno_emp":"García","puesto":{"id_puesto":1,"nombre_puesto":"Gerente"}}
+);
