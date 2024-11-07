@@ -11,3 +11,5 @@ Modifique la colleccion de bebidas colocandole un objeto anidado array ingredien
 -------------------------------------
 Alondra Alejandra Lopez Medellin
 Modifique las colecciones de pedidos y empleados y realice pruebas para pasar los json de sql a mongodb
+
+Buenas noches se requiere subir todas las colecciones 
