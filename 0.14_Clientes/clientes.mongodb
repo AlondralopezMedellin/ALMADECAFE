@@ -1,0 +1,43 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+
+// Crear la colección clientes con validación
+db.createCollection("clientes", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Clientes",
+            required: ["id_cliente", "nombre_cliente"],
+            properties: {
+                id_cliente: {
+                    bsonType: "int",
+                    description: "ID único del cliente"
+                },
+                nombre_cliente: {
+                    bsonType: "string",
+                    description: "Nombre del cliente, por defecto 'ANONIMO'",
+                    minLength: 1,
+                    maxLength: 50
+                },
+                apellidos_cliente: {
+                    bsonType: "string",
+                    description: "Apellidos completos del cliente",
+                    maxLength: 70
+                },
+                nacionalidad: {
+                    bsonType: "string",
+                    description: "Nacionalidad del cliente",
+                    maxLength: 30
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice único para id_cliente
+db.clientes.createIndex(
+    { id_cliente: 1 },
+    { unique: true }
+);
+

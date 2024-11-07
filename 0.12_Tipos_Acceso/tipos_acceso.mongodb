@@ -1,0 +1,37 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+db.tipos_de_acceso.drop()
+// Crear la colección tipos_de_acceso con validación
+db.createCollection("tipos_de_acceso", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Tipos de Acceso",
+            required: ["id_acceso", "descripcion", "nivel_acceso"],
+            properties: {
+                id_acceso: {
+                    bsonType: "int",
+                    description: "ID único del tipo de acceso"
+                },
+                descripcion: {
+                    bsonType: "string",
+                    description: "Descripción del tipo de acceso",
+                    minLength: 1,
+                    maxLength: 100
+                },
+                nivel_acceso: {
+                    bsonType: "string",
+                    enum: ["BÁSICO", "INTERMEDIO", "AVANZADO", "ADMINISTRADOR"],
+                    description: "Nivel de acceso del tipo de acceso (BÁSICO, INTERMEDIO, AVANZADO, ADMINISTRADOR)"
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice único para id_acceso
+db.tipos_de_acceso.createIndex(
+    { id_acceso: 1 },
+    { unique: true }
+);

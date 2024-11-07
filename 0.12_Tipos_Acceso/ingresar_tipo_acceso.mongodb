@@ -1,0 +1,7 @@
+
+use("Alma_de_Cafe");
+
+// Inserción de un ejemplo en la colección tipos_de_acceso
+db.tipos_de_acceso.insertMany(
+    [  {"id_acceso":1,"descripcion":"Acceso al sistema de ventas","nivel_acceso":"BÁSICO"},{"id_acceso":2,"descripcion":"Acceso al sistema de inventarios","nivel_acceso":"BÁSICO"},{"id_acceso":3,"descripcion":"Acceso al módulo de clientes","nivel_acceso":"BÁSICO"},{"id_acceso":4,"descripcion":"Acceso al módulo de empleados","nivel_acceso":"BÁSICO"},{"id_acceso":5,"descripcion":"Acceso al módulo de proveedores","nivel_acceso":"BÁSICO"},{"id_acceso":6,"descripcion":"Acceso al módulo de reportes","nivel_acceso":"BÁSICO"},{"id_acceso":7,"descripcion":"Acceso al sistema de pedidos","nivel_acceso":"BÁSICO"},{"id_acceso":8,"descripcion":"Acceso al módulo de facturación","nivel_acceso":"BÁSICO"},{"id_acceso":9,"descripcion":"Acceso al sistema de administración","nivel_acceso":"BÁSICO"},{"id_acceso":10,"descripcion":"Acceso al sistema de soporte técnico","nivel_acceso":"BÁSICO"}]
+);

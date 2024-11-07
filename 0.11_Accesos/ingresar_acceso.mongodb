@@ -1,0 +1,46 @@
+
+use("Alma_de_Cafe");
+db.accesos.insertMany([
+    {
+        id_empleado_acceso: 54,
+        empleado: {
+            id_empleado: 3,
+            nombre_empleado: "María",
+            puesto: "Barista"
+        },
+        tipo_acceso: {
+            id_acceso: 7,
+            descripcion: "Acceso al sistema de pedidos"
+        },
+        fecha: ISODate("2024-10-11"),
+        hora: "08:30:00"
+    },
+    {
+        id_empleado_acceso: 55,
+        empleado: {
+            id_empleado: 4,
+            nombre_empleado: "Carlos Gómez",
+            puesto: "Mesero"
+        },
+        tipo_acceso: {
+            id_acceso: 8,
+            descripcion: "Acceso al sistema de ventas"
+        },
+        fecha: ISODate("2024-10-15"),
+        hora: "10:00:00"
+    },
+    {
+        id_empleado_acceso: 56,
+        empleado: {
+            id_empleado: 5,
+            nombre_empleado: "Laura Sánchez",
+            puesto: "Cajera"
+        },
+        tipo_acceso: {
+            id_acceso: 9,
+            descripcion: "Acceso al sistema de inventarios"
+        },
+        fecha: ISODate("2024-10-16"),
+        hora: "16:45:00"
+    }
+]);

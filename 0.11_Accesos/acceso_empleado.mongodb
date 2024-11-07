@@ -1,0 +1,72 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+// Crear la colección accesos con validación
+db.createCollection("accesos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Accesos de Empleados",
+            required: ["id_empleado_acceso", "empleado", "tipo_acceso", "fecha", "hora"],
+            properties: {
+                id_empleado_acceso: {
+                    bsonType: "int",
+                    description: "ID único de acceso del empleado"
+                },
+                empleado: {
+                    bsonType: "object",
+                    required: ["id_empleado", "nombre_empleado", "puesto"],
+                    properties: {
+                        id_empleado: {
+                            bsonType: "int",
+                            description: "ID del empleado"
+                        },
+                        nombre_empleado: {
+                            bsonType: "string",
+                            description: "Nombre del empleado",
+                            minLength: 1
+                        },
+                        puesto: {
+                            bsonType: "string",
+                            description: "Puesto del empleado",
+                            minLength: 1
+                        }
+                    },
+                    description: "Información del empleado que accede"
+                },
+                tipo_acceso: {
+                    bsonType: "object",
+                    required: ["id_acceso", "descripcion"],
+                    properties: {
+                        id_acceso: {
+                            bsonType: "int",
+                            description: "ID del tipo de acceso"
+                        },
+                        descripcion: {
+                            bsonType: "string",
+                            description: "Descripción del tipo de acceso",
+                            minLength: 1
+                        }
+                    },
+                    description: "Información del tipo de acceso"
+                },
+                fecha: {
+                    bsonType: "date",
+                    description: "Fecha del acceso"
+                },
+                hora: {
+                    bsonType: "string",
+                    description: "Hora del acceso",
+                    pattern: "^[0-2][0-9]:[0-5][0-9]:[0-5][0-9]$"
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice único para id_empleado_acceso
+db.accesos.createIndex(
+    { id_empleado_acceso: 1 },
+    { unique: true }
+);
+

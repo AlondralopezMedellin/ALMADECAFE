@@ -1,0 +1,72 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+// Eliminar la colección si existe
+db.ventas.drop();
+
+// Crear la colección ventas con validación
+db.createCollection("ventas", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Ventas",
+            required: ["id_venta", "metodo_pago", "cliente", "pedido"],
+            properties: {
+                id_venta: {
+                    bsonType: "int",
+                    description: "ID único de la venta"
+                },
+                metodo_pago: {
+                    bsonType: "string",
+                    enum: ["EFECTIVO", "TARJETA", "CREDITO"],
+                    description: "Método de pago (EFECTIVO, TARJETA, CREDITO)"
+                },
+                cliente: {
+                    bsonType: "object",
+                    required: ["id_cliente", "nombre_cliente"],
+                    properties: {
+                        id_cliente: {
+                            bsonType: "int",
+                            description: "ID del cliente"
+                        },
+                        nombre_cliente: {
+                            bsonType: "string",
+                            description: "Nombre del cliente",
+                            minLength: 1,
+                            maxLength: 100
+                        }
+                    },
+                    description: "Objeto anidado del cliente"
+                },
+                pedido: {
+                    bsonType: "object",
+                    required: ["id_pedido", "total", "subtotal"],
+                    properties: {
+                        id_pedido: {
+                            bsonType: "int",
+                            description: "ID del pedido"
+                        },
+                        total: {
+                            bsonType: "double",
+                            description: "Total del pedido",
+                            minimum: 0
+                        },
+                        subtotal: {
+                            bsonType: "double",
+                            description: "Subtotal del pedido",
+                            minimum: 0
+                        }
+                    },
+                    description: "Objeto anidado del pedido"
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice único para id_venta
+db.ventas.createIndex(
+    { id_venta: 1 },
+    { unique: true }
+);
+

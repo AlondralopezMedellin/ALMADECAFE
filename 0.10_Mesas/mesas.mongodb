@@ -1,0 +1,35 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+// Crear la colección mesas con validación
+db.createCollection('mesas', {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Mesas",
+            required: ["id_mesa", "lugar", "capacidad"],
+            properties: {
+                id_mesa: {
+                    bsonType: "int",
+                    description: "ID único de la mesa"
+                },
+                lugar: {
+                    bsonType: "string",
+                    description: "Ubicación de la mesa",
+                    enum: ["PATIO EXTERIOR", "PATIO INTERIOR", "INTERIOR", "LLEVAR"]
+                },
+                capacidad: {
+                    bsonType: "int",
+                    description: "Capacidad de la mesa",
+                    minimum: 1
+                }
+            }
+        }
+    }
+});
+
+db.mesas.createIndex(
+    { id_mesa: 1 },
+    { unique: true }
+);
+
