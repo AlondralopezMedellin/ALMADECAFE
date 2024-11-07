@@ -1,0 +1,10 @@
+
+use("Alma_de_Cafe");
+db.puestos.insertOne({
+    id_puesto: 1,
+    nombre_puesto: "Mesero",
+    descripcion: "Responsable de atender a los clientes y tomar sus órdenes.",
+    requisitos: "Experiencia mínima de 1 año en el sector.",
+    jornada_laboral: "08:00AM - 04:00PM",
+    salario: NumberDecimal("3000.00")
+});

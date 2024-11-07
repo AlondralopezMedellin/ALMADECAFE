@@ -1,0 +1,13 @@
+
+use("Alma_de_Cafe");
+db.ingredientes.insertOne({
+    id_ingrediente: 1,
+    recurso: {
+        id_recurso: 1001,
+        cantidad_existente: 50,
+        fecha_caducidad: new Date("2024-12-31")
+    },
+    tipo_ingrediente: "LIQUIDO",
+    sabor: "DULCE"
+});
+

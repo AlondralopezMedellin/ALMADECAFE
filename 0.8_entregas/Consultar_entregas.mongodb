@@ -1,0 +1,6 @@
+
+//usar la base de datos
+use("Alma_de_Cafe");
+//Consultar los registros
+//SELECT * FROM entregas
+db.entregas.find()

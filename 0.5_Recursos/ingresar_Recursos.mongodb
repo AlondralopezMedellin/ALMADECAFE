@@ -1,0 +1,12 @@
+
+use("Alma_de_Cafe");
+db.recursos.insertOne({
+    id_recurso: 1,
+    nombre_recurso: "Harina de Trigo",
+    tipo_recurso: "INGREDIENTE",
+    cantidad_existente: 100,
+    descripcion_recurso: "Harina de trigo para uso en panadería y repostería",
+    costo_recurso: "50.00 MXN por kg",
+    fecha_caducidad: new Date("2024-11-30"),
+    lugar_se_encuentra: "BODEGA"
+});

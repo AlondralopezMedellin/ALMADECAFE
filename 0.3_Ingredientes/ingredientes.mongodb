@@ -1,0 +1,53 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+// Crear la colección ingredientes con validación
+db.createCollection('ingredientes', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto ingredientes',
+            required: ['id_ingrediente', 'recurso', 'tipo_ingrediente', 'sabor'],
+            properties: {
+                id_ingrediente: {
+                    bsonType: 'int',
+                    description: 'ID del ingrediente'
+                },
+                recurso: {
+                    bsonType: 'object',
+                    required: ['id_recurso', 'cantidad_existente', 'fecha_caducidad'],
+                    description: 'Datos del recurso asociado al ingrediente',
+                    properties: {
+                        id_recurso: {
+                            bsonType: 'int',
+                            description: 'ID del recurso'
+                        },
+                        cantidad_existente: {
+                            bsonType: 'int',
+                            description: 'Cantidad existente del recurso'
+                        },
+                        fecha_caducidad: {
+                            bsonType: 'date',
+                            description: 'Fecha de caducidad del recurso'
+                        }
+                    }
+                },
+                tipo_ingrediente: {
+                    bsonType: 'string',
+                    enum: ['LIQUIDO', 'POLVOS', 'SOLIDO'],
+                    description: 'Tipo de ingrediente (LIQUIDO, POLVOS, SOLIDO)'
+                },
+                sabor: {
+                    bsonType: 'string',
+                    enum: ['AMARGO', 'DULCE', 'SALADO', 'AGRIO'],
+                    description: 'Sabor del ingrediente (AMARGO, DULCE, SALADO, AGRIO)'
+                }
+            }
+        }
+    }
+});
+
+db.ingredientes.createIndex(
+    {id_ingrediente: 1}, 
+    {unique: true} 
+);

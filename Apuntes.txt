@@ -13,3 +13,5 @@ Alondra Alejandra Lopez Medellin
 Modifique las colecciones de pedidos y empleados y realice pruebas para pasar los json de sql a mongodb
 
 Buenas noches se requiere subir todas las colecciones 
+
+Hola buenas noches Alondra, estoy en este momento realizando las colecciones de Ingredientes, Postres, Recursos, Puestos y entregas.

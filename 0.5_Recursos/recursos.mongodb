@@ -1,0 +1,62 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+// Crear la colección recursos con validación
+db.createCollection('recursos', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto recursos',
+            required: ['id_recurso', 'nombre_recurso', 'tipo_recurso', 'cantidad_existente', 'descripcion_recurso', 'costo_recurso', 'fecha_caducidad', 'lugar_se_encuentra'],
+            properties: {
+                id_recurso: {
+                    bsonType: 'int',
+                    description: 'ID del recurso'
+                },
+                nombre_recurso: {
+                    bsonType: 'string',
+                    description: 'Nombre del recurso',
+                    minLength: 1,
+                    maxLength: 50
+                },
+                tipo_recurso: {
+                    bsonType: 'string',
+                    enum: ['POSTRE', 'INGREDIENTE'],
+                    description: 'Tipo de recurso (POSTRE o INGREDIENTE)'
+                },
+                cantidad_existente: {
+                    bsonType: 'int',
+                    minimum: 1,
+                    description: 'Cantidad existente del recurso, debe ser mayor a 0'
+                },
+                descripcion_recurso: {
+                    bsonType: 'string',
+                    description: 'Descripción del recurso',
+                    minLength: 1,
+                    maxLength: 200
+                },
+                costo_recurso: {
+                    bsonType: 'string',
+                    description: 'Costo del recurso',
+                    minLength: 1,
+                    maxLength: 100
+                },
+                fecha_caducidad: {
+                    bsonType: 'date',
+                    description: 'Fecha de caducidad del recurso'
+                },
+                lugar_se_encuentra: {
+                    bsonType: 'string',
+                    enum: ['REFRIGERADOR', 'BODEGA', 'REPISA', 'CAJONES'],
+                    description: 'Lugar donde se encuentra el recurso'
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice único para id_recurso
+db.recursos.createIndex(
+    {id_recurso: 1},
+    {unique: true}
+);

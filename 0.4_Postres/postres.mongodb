@@ -1,0 +1,57 @@
+use("Alma_de_Cafe");
+
+db.postres.drop()
+// Crear la colección postres con validación
+db.createCollection('postres', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            title: 'Validación del objeto postres',
+            required: ['id_postre', 'precio_postre', 'descripcion_postre', 'recurso', 'margen_de_ganancia'],
+            properties: {
+                id_postre: {
+                    bsonType: 'int',
+                    description: 'ID del postre'
+                },
+                precio_postre: {
+                    bsonType: 'decimal',
+                    description: 'Precio del postre'
+                },
+                descripcion_postre: {
+                    bsonType: 'string',
+                    description: 'Descripción del postre',
+                    minLength: 1,
+                    maxLength: 50
+                },
+                recurso: {
+                    bsonType: 'object',
+                    required: ['id_recurso', 'cantidad_existente', 'fecha_caducidad'],
+                    description: 'Datos del recurso asociado al postre',
+                    properties: {
+                        id_recurso: {
+                            bsonType: 'int',
+                            description: 'ID del recurso'
+                        },
+                        cantidad_existente: {
+                            bsonType: 'int',
+                            description: 'Cantidad existente del recurso'
+                        },
+                        fecha_caducidad: {
+                            bsonType: 'date',
+                            description: 'Fecha de caducidad del recurso'
+                        }
+                    }
+                },
+                margen_de_ganancia: {
+                    bsonType: 'decimal',
+                    description: 'Margen de ganancia del postre'
+                }
+            }
+        }
+    }
+});
+db.postres.createIndex(
+    {id_postre: 1}, 
+    {unique: true} 
+);
+

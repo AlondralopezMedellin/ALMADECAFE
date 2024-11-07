@@ -1,0 +1,106 @@
+// Usar la base de datos
+use("Alma_de_Cafe");
+
+db.entregas.drop()
+// Crear la colección entregas con validación
+db.createCollection('entregas', {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            title: "Entregas",
+            required: [
+                "id_entrega", 
+                "dia_entrega", 
+                "mes_entrega", 
+                "anio_entrega", 
+                "fecha_caducidad", 
+                "hora", 
+                "cantidad_entregada", 
+                "costo", 
+                "recursos"
+            ],
+            properties: {
+                id_entrega: {
+                    bsonType: "int",
+                    description: "ID único de la entrega"
+                },
+                dia_entrega: {
+                    bsonType: "int",
+                    description: "Día de la entrega",
+                    minimum: 1,
+                    maximum: 31
+                },
+                mes_entrega: {
+                    bsonType: "int",
+                    description: "Mes de la entrega",
+                    minimum: 1,
+                    maximum: 12
+                },
+                anio_entrega: {
+                    bsonType: "int",
+                    description: "Año de la entrega",
+                    minimum: 2022,
+                    maximum: 2100 // Puedes ajustar el rango según sea necesario
+                },
+                fecha_caducidad: {
+                    bsonType: "date",
+                    description: "Fecha de caducidad"
+                },
+                hora: {
+                    bsonType: "string", // Puedes usar string para almacenar el formato de la hora
+                    description: "Hora de entrega"
+                },
+                cantidad_entregada: {
+                    bsonType: "int",
+                    description: "Cantidad entregada",
+                    minimum: 1
+                },
+                costo: {
+                    bsonType: "decimal",
+                    description: "Costo de la entrega",
+                    minimum: 0
+                },
+                proveedor: {
+                    bsonType: "object",
+                    properties: {
+                        id_proveedor: {
+                            bsonType: "int",
+                            description: "ID del proveedor"
+                        },
+                        nombre_prov: {
+                            bsonType: "string",
+                            description: "Nombre del proveedor",
+                            minLength: 1,
+                            maxLength: 100
+                        }
+                    }
+                },
+                recursos: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "object",
+                        properties: {
+                            id_recurso: {
+                                bsonType: "int",
+                                description: "ID del recurso"
+                            },
+                            nombre_recurso: {
+                                bsonType: "string",
+                                description: "Nombre del recurso",
+                                minLength: 1,
+                                maxLength: 100
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+});
+
+// Crear un índice único para id_entrega
+db.entregas.createIndex(
+    { id_entrega: 1 },
+    { unique: true }
+);
+

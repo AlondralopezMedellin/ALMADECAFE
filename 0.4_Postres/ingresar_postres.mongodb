@@ -1,0 +1,13 @@
+
+use("Alma_de_Cafe");
+db.postres.insertOne({
+    id_postre: 1,
+    precio_postre: NumberDecimal("50.00"),
+    descripcion_postre: "Pastel de tres leches",
+    recurso: {
+        id_recurso: 2001,
+        cantidad_existente: 10,
+        fecha_caducidad: new Date("2024-11-15")
+    },
+    margen_de_ganancia: NumberDecimal("15.00")
+});
