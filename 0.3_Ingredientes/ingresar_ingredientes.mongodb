@@ -1,13 +1,223 @@
 
 use("Alma_de_Cafe");
+use("Alma_de_Cafe");
+
 db.ingredientes.insertOne({
-    id_ingrediente: 1,
+    id_ingrediente: 9,
     recurso: {
-        id_recurso: 1001,
-        cantidad_existente: 50,
-        fecha_caducidad: new Date("2024-12-31")
+        id_recurso: 1,
+        cantidad_existente: 100,
+        fecha_caducidad: new Date("2025-01-01")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 10,
+    recurso: {
+        id_recurso: 2,
+        cantidad_existente: 200,
+        fecha_caducidad: new Date("2023-12-31")
     },
     tipo_ingrediente: "LIQUIDO",
     sabor: "DULCE"
 });
 
+db.ingredientes.insertOne({
+    id_ingrediente: 11,
+    recurso: {
+        id_recurso: 3,
+        cantidad_existente: 150,
+        fecha_caducidad: new Date("2024-05-30")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AMARGO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 12,
+    recurso: {
+        id_recurso: 4,
+        cantidad_existente: 50,
+        fecha_caducidad: new Date("2024-06-15")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AGRIO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 13,
+    recurso: {
+        id_recurso: 5,
+        cantidad_existente: 40,
+        fecha_caducidad: new Date("2024-06-20")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AMARGO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 14,
+    recurso: {
+        id_recurso: 6,
+        cantidad_existente: 70,
+        fecha_caducidad: new Date("2023-10-10")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 15,
+    recurso: {
+        id_recurso: 7,
+        cantidad_existente: 90,
+        fecha_caducidad: new Date("2023-10-15")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AGRIO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 16,
+    recurso: {
+        id_recurso: 8,
+        cantidad_existente: 60,
+        fecha_caducidad: new Date("2024-01-01")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 17,
+    recurso: {
+        id_recurso: 9,
+        cantidad_existente: 80,
+        fecha_caducidad: new Date("2024-05-30")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AMARGO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 18,
+    recurso: {
+        id_recurso: 10,
+        cantidad_existente: 30,
+        fecha_caducidad: new Date("2023-11-10")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 19,
+    recurso: {
+        id_recurso: 1,
+        cantidad_existente: 100,
+        fecha_caducidad: new Date("2025-01-01")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AMARGO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 20,
+    recurso: {
+        id_recurso: 2,
+        cantidad_existente: 200,
+        fecha_caducidad: new Date("2023-12-31")
+    },
+    tipo_ingrediente: "LIQUIDO",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 21,
+    recurso: {
+        id_recurso: 3,
+        cantidad_existente: 150,
+        fecha_caducidad: new Date("2024-05-30")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 22,
+    recurso: {
+        id_recurso: 4,
+        cantidad_existente: 50,
+        fecha_caducidad: new Date("2024-06-15")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "SALADO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 23,
+    recurso: {
+        id_recurso: 5,
+        cantidad_existente: 40,
+        fecha_caducidad: new Date("2024-06-20")
+    },
+    tipo_ingrediente: "LIQUIDO",
+    sabor: "AGRIO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 24,
+    recurso: {
+        id_recurso: 6,
+        cantidad_existente: 70,
+        fecha_caducidad: new Date("2023-10-10")
+    },
+    tipo_ingrediente: "POLVOS",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 25,
+    recurso: {
+        id_recurso: 7,
+        cantidad_existente: 90,
+        fecha_caducidad: new Date("2023-10-15")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AMARGO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 26,
+    recurso: {
+        id_recurso: 8,
+        cantidad_existente: 60,
+        fecha_caducidad: new Date("2024-01-01")
+    },
+    tipo_ingrediente: "LIQUIDO",
+    sabor: "DULCE"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 27,
+    recurso: {
+        id_recurso: 9,
+        cantidad_existente: 80,
+        fecha_caducidad: new Date("2024-05-30")
+    },
+    tipo_ingrediente: "SOLIDO",
+    sabor: "AGRIO"
+});
+
+db.ingredientes.insertOne({
+    id_ingrediente: 28,
+    recurso: {
+        id_recurso: 10,
+        cantidad_existente: 30,
+        fecha_caducidad: new Date("2023-11-10")
+    },
+    tipo_ingrediente: "POLVOS",
+    sabor: "AMARGO"
+});

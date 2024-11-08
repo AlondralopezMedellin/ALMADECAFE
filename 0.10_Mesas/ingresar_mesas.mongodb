@@ -1,15 +1,14 @@
-
 use("Alma_de_Cafe");
-// Inserción de un ejemplo en la colección mesas
-db.mesas.insertMany(
-    [{"id_mesa":11,"lugar":"PATIO EXTERIOR","capacidad":4},
-    {"id_mesa":12,"lugar":"PATIO INTERIOR","capacidad":6},
-    {"id_mesa":13,"lugar":"INTERIOR","capacidad":2},
-    {"id_mesa":14,"lugar":"PATIO EXTERIOR","capacidad":4},
-    {"id_mesa":15,"lugar":"LLEVAR","capacidad":1},
-    {"id_mesa":16,"lugar":"INTERIOR","capacidad":6},
-    {"id_mesa":17,"lugar":"PATIO INTERIOR","capacidad":8},
-    {"id_mesa":18,"lugar":"PATIO EXTERIOR","capacidad":4},
-    {"id_mesa":19,"lugar":"INTERIOR","capacidad":2},
-    {"id_mesa":20,"lugar":"LLEVAR","capacidad":1}]
-);
+
+db.mesas.insertMany([
+    { id_mesa: 1, lugar: "PATIO EXTERIOR", capacidad: 4 },
+    { id_mesa: 2, lugar: "PATIO INTERIOR", capacidad: 6 },
+    { id_mesa: 3, lugar: "INTERIOR", capacidad: 2 },
+    { id_mesa: 4, lugar: "PATIO EXTERIOR", capacidad: 4 },
+    { id_mesa: 5, lugar: "INTERIOR", capacidad: 4 },
+    { id_mesa: 6, lugar: "PATIO INTERIOR", capacidad: 8 },
+    { id_mesa: 7, lugar: "LLEVAR", capacidad: 0 },
+    { id_mesa: 8, lugar: "INTERIOR", capacidad: 2 },
+    { id_mesa: 9, lugar: "PATIO EXTERIOR", capacidad: 6 },
+    { id_mesa: 10, lugar: "PATIO INTERIOR", capacidad: 4 }
+]);

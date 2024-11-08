@@ -1,10 +1,87 @@
 
 use("Alma_de_Cafe");
-db.puestos.insertOne({
-    id_puesto: 1,
-    nombre_puesto: "Mesero",
-    descripcion: "Responsable de atender a los clientes y tomar sus órdenes.",
-    requisitos: "Experiencia mínima de 1 año en el sector.",
-    jornada_laboral: "08:00AM - 04:00PM",
-    salario: NumberDecimal("3000.00")
-});
+
+use("Alma_de_Cafe");
+
+db.puestos.insertMany([
+    {
+        "id_puesto": 1,
+        "nombre_puesto": "Gerente",
+        "descripcion": "Responsable de la gestión del café y supervisión de personal.",
+        "requisitos": "Experiencia en administración, liderazgo.",
+        "jornada_laboral": "09:00AM - 06:00PM",
+        "salario": NumberDecimal("15000")
+    },
+    {
+        "id_puesto": 2,
+        "nombre_puesto": "Barista",
+        "descripcion": "Encargado de preparar bebidas y atender al cliente.",
+        "requisitos": "Conocimiento en café, atención al cliente.",
+        "jornada_laboral": "08:00AM - 04:00PM",
+        "salario": NumberDecimal("8000")
+    },
+    {
+        "id_puesto": 3,
+        "nombre_puesto": "Cajero",
+        "descripcion": "Responsable de realizar transacciones y cobros.",
+        "requisitos": "Experiencia en manejo de efectivo.",
+        "jornada_laboral": "10:00AM - 06:00PM",
+        "salario": NumberDecimal("7000")
+    },
+    {
+        "id_puesto": 4,
+        "nombre_puesto": "Cocinero",
+        "descripcion": "Encargado de la preparación de alimentos y postres.",
+        "requisitos": "Experiencia en cocina, creatividad.",
+        "jornada_laboral": "09:00AM - 05:00PM",
+        "salario": NumberDecimal("9000")
+    },
+    {
+        "id_puesto": 5,
+        "nombre_puesto": "Mesero",
+        "descripcion": "Atención al cliente en el área de mesas.",
+        "requisitos": "Buena presentación, atención al cliente.",
+        "jornada_laboral": "10:00AM - 06:00PM",
+        "salario": NumberDecimal("6000")
+    },
+    {
+        "id_puesto": 6,
+        "nombre_puesto": "Limpieza",
+        "descripcion": "Encargado de mantener el local limpio y ordenado.",
+        "requisitos": "Responsable y proactivo.",
+        "jornada_laboral": "08:00AM - 04:00PM",
+        "salario": NumberDecimal("5000")
+    },
+    {
+        "id_puesto": 7,
+        "nombre_puesto": "Administrador",
+        "descripcion": "Gestión administrativa y financiera del negocio.",
+        "requisitos": "Experiencia en contabilidad y administración.",
+        "jornada_laboral": "09:00AM - 05:00PM",
+        "salario": NumberDecimal("12000")
+    },
+    {
+        "id_puesto": 8,
+        "nombre_puesto": "Contador",
+        "descripcion": "Encargado de la contabilidad y reportes financieros.",
+        "requisitos": "Título en contabilidad, experiencia previa.",
+        "jornada_laboral": "09:00AM - 05:00PM",
+        "salario": NumberDecimal("10000")
+    },
+    {
+        "id_puesto": 9,
+        "nombre_puesto": "Recepcionista",
+        "descripcion": "Atención al cliente y gestión de reservas.",
+        "requisitos": "Habilidades interpersonales, organización.",
+        "jornada_laboral": "10:00AM - 06:00PM",
+        "salario": NumberDecimal("7000")
+    },
+    {
+        "id_puesto": 10,
+        "nombre_puesto": "Encargado de Inventario",
+        "descripcion": "Supervisión de inventario y abastecimiento.",
+        "requisitos": "Organización, conocimiento de recursos.",
+        "jornada_laboral": "09:00AM - 05:00PM",
+        "salario": NumberDecimal("8000")
+    }
+]);

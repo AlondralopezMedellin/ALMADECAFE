@@ -1,30 +1,239 @@
 use("Alma_de_Cafe");
-
-db.pedidos.insertOne(
+[
     {
-        "id_pedido": 4,
-        "total": NumberDecimal("150.0"),
-        "subtotal": NumberDecimal("130.0"),
+        "id_pedido": 3,
+        "total": 120.00,
+        "subtotal": 100.00,
         "dia_pedido": 11,
         "mes_pedido": 9,
         "anio_pedido": 2024,
         "estatus": "TERMINADO",
-        "empleado": {
-            "id_empleado": 2,
-            "nombre": "Juan",
-            "puesto": "Gerente"
-        },
-        "mesa": {
-            "id_mesa": 12,
-            "capacidad": 6
-        },
+        "empleado": [
+            {
+                "id_empleado": 2,
+                "nombre": "Juan",
+                "puesto": "Gerente"
+            }
+        ],
+        "mesa": [
+            {
+                "id_mesa": 11,
+                "capacidad": 4
+            }
+        ],
         "postres": [
-            {"id_postre": 12, "nombre_postre": "Galleta de chispas de chocolate", "cantidad": 3, "precio": NumberDecimal("38")},
-            {"id_postre": 3, "nombre_postre": "Brownie de chocolate", "cantidad": 2, "precio": NumberDecimal("40")}
+            {
+                "id_postre": 5,
+                "nombre_postre": "Tarta de manzana",
+                "cantidad": 2,
+                "precio": 50.00
+            },
+            {
+                "id_postre": 11,
+                "nombre_postre": "Brownie de nuez",
+                "cantidad": 1,
+                "precio": 35.00
+            }
+        ]
+    },
+    {
+        "id_pedido": 4,
+        "total": 150.00,
+        "subtotal": 130.00,
+        "dia_pedido": 11,
+        "mes_pedido": 9,
+        "anio_pedido": 2024,
+        "estatus": "TERMINADO",
+        "empleado": [
+            {
+                "id_empleado": 2,
+                "nombre": "Juan",
+                "puesto": "Gerente"
+            }
+        ],
+        "mesa": [
+            {
+                "id_mesa": 12,
+                "capacidad": 6
+            }
+        ],
+        "postres": [
+            {
+                "id_postre": 12,
+                "nombre_postre": "Galleta de chispas de chocolate",
+                "cantidad": 3,
+                "precio": 38.00
+            },
+            {
+                "id_postre": 3,
+                "nombre_postre": "Brownie de chocolate",
+                "cantidad": 2,
+                "precio": 40.00
+            }
         ],
         "bebidas": [
-            {"id_bebida": 4, "nombre_bebida": "Frapuccino", "cantidad": 6, "precio": NumberDecimal("55")},
-            {"id_bebida": 3, "nombre_bebida": "Té Verde", "cantidad": 7, "precio": NumberDecimal("30")}
+            {
+                "id_bebida": 4,
+                "nombre_bebida": "Frapuccino",
+                "cantidad": 6,
+                "precio": 55.00
+            },
+            {
+                "id_bebida": 3,
+                "nombre_bebida": "Té Verde",
+                "cantidad": 7,
+                "precio": 30.00
+            }
+        ]
+    },
+    {
+        "id_pedido": 5,
+        "total": 180.00,
+        "subtotal": 150.00,
+        "dia_pedido": 11,
+        "mes_pedido": 9,
+        "anio_pedido": 2024,
+        "estatus": "TERMINADO",
+        "empleado": [
+            {
+                "id_empleado": 3,
+                "nombre": "María",
+                "puesto": "Barista"
+            }
+        ],
+        "mesa": [
+            {
+                "id_mesa": 13,
+                "capacidad": 2
+            }
+        ],
+        "postres": [
+            {
+                "id_postre": 4,
+                "nombre_postre": "Galleta de avena",
+                "cantidad": 1,
+                "precio": 35.00
+            },
+            {
+                "id_postre": 5,
+                "nombre_postre": "Tarta de manzana",
+                "cantidad": 4,
+                "precio": 50.00
+            }
+        ],
+        "bebidas": [
+            {
+                "id_bebida": 5,
+                "nombre_bebida": "Agua de Horchata",
+                "cantidad": 3,
+                "precio": 25.00
+            },
+            {
+                "id_bebida": 4,
+                "nombre_bebida": "Frapuccino",
+                "cantidad": 3,
+                "precio": 55.00
+            }
+        ]
+    },
+    {
+        "id_pedido": 6,
+        "total": 200.00,
+        "subtotal": 170.00,
+        "dia_pedido": 11,
+        "mes_pedido": 9,
+        "anio_pedido": 2024,
+        "estatus": "TERMINADO",
+        "empleado": [
+            {
+                "id_empleado": 4,
+                "nombre": "Carlos",
+                "puesto": "Cajero"
+            }
+        ],
+        "mesa": [
+            {
+                "id_mesa": 14,
+                "capacidad": 4
+            }
+        ],
+        "postres": [
+            {
+                "id_postre": 6,
+                "nombre_postre": "Cheesecake",
+                "cantidad": 1,
+                "precio": 60.00
+            },
+            {
+                "id_postre": 7,
+                "nombre_postre": "Tarta de limón",
+                "cantidad": 2,
+                "precio": 55.00
+            }
+        ],
+        "bebidas": [
+            {
+                "id_bebida": 6,
+                "nombre_bebida": "Chocolate Caliente",
+                "cantidad": 2,
+                "precio": 40.00
+            },
+            {
+                "id_bebida": 5,
+                "nombre_bebida": "Agua de Horchata",
+                "cantidad": 2,
+                "precio": 25.00
+            }
+        ]
+    },
+    {
+        "id_pedido": 7,
+        "total": 220.00,
+        "subtotal": 180.00,
+        "dia_pedido": 11,
+        "mes_pedido": 9,
+        "anio_pedido": 2024,
+        "estatus": "TERMINADO",
+        "empleado": [
+            {
+                "id_empleado": 5,
+                "nombre": "Ana",
+                "puesto": "Cocinero"
+            }
+        ],
+        "mesa": [
+            {
+                "id_mesa": 15,
+                "capacidad": 0
+            }
+        ],
+        "postres": [
+            {
+                "id_postre": 8,
+                "nombre_postre": "Pastel de fresa",
+                "cantidad": 3,
+                "precio": 45.00
+            },
+            {
+                "id_postre": 9,
+                "nombre_postre": "Cupcake de vainilla",
+                "cantidad": 1,
+                "precio": 50.00
+            }
+        ],
+        "bebidas": [
+            {
+                "id_bebida": 7,
+                "nombre_bebida": "Té Negro",
+                "cantidad": 1,
+                "precio": 28.00
+            },
+            {
+                "id_bebida": 6,
+                "nombre_bebida": "Chocolate Caliente",
+                "cantidad": 2,
+                "precio": 40.00
+            }
         ]
     }
-);
+]

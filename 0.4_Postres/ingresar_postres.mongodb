@@ -1,13 +1,116 @@
 
 use("Alma_de_Cafe");
-db.postres.insertOne({
-    id_postre: 1,
-    precio_postre: NumberDecimal("50.00"),
-    descripcion_postre: "Pastel de tres leches",
-    recurso: {
-        id_recurso: 2001,
-        cantidad_existente: 10,
-        fecha_caducidad: new Date("2024-11-15")
+use("Alma_de_Cafe");
+
+db.postres.insertMany([
+    {
+        id_postre: 3,
+        precio_postre: NumberDecimal("40"),
+        descripcion_postre: "Brownie de chocolate",
+        recurso: {
+            id_recurso: 1,
+            cantidad_existente: 100,
+            fecha_caducidad: new Date("2025-01-01")
+        },
+        margen_de_ganancia: NumberDecimal("20")
     },
-    margen_de_ganancia: NumberDecimal("15.00")
-});
+    {
+        id_postre: 4,
+        precio_postre: NumberDecimal("35"),
+        descripcion_postre: "Galleta de avena",
+        recurso: {
+            id_recurso: 2,
+            cantidad_existente: 200,
+            fecha_caducidad: new Date("2023-12-31")
+        },
+        margen_de_ganancia: NumberDecimal("15")
+    },
+    {
+        id_postre: 5,
+        precio_postre: NumberDecimal("50"),
+        descripcion_postre: "Tarta de manzana",
+        recurso: {
+            id_recurso: 3,
+            cantidad_existente: 150,
+            fecha_caducidad: new Date("2024-05-30")
+        },
+        margen_de_ganancia: NumberDecimal("25")
+    },
+    {
+        id_postre: 6,
+        precio_postre: NumberDecimal("60"),
+        descripcion_postre: "Cheesecake",
+        recurso: {
+            id_recurso: 4,
+            cantidad_existente: 50,
+            fecha_caducidad: new Date("2024-06-15")
+        },
+        margen_de_ganancia: NumberDecimal("25")
+    },
+    {
+        id_postre: 7,
+        precio_postre: NumberDecimal("55"),
+        descripcion_postre: "Tarta de limón",
+        recurso: {
+            id_recurso: 5,
+            cantidad_existente: 40,
+            fecha_caducidad: new Date("2024-06-20")
+        },
+        margen_de_ganancia: NumberDecimal("10")
+    },
+    {
+        id_postre: 8,
+        precio_postre: NumberDecimal("45"),
+        descripcion_postre: "Pastel de fresa",
+        recurso: {
+            id_recurso: 6,
+            cantidad_existente: 70,
+            fecha_caducidad: new Date("2023-10-10")
+        },
+        margen_de_ganancia: NumberDecimal("20")
+    },
+    {
+        id_postre: 9,
+        precio_postre: NumberDecimal("50"),
+        descripcion_postre: "Cupcake de vainilla",
+        recurso: {
+            id_recurso: 7,
+            cantidad_existente: 90,
+            fecha_caducidad: new Date("2023-10-15")
+        },
+        margen_de_ganancia: NumberDecimal("25")
+    },
+    {
+        id_postre: 10,
+        precio_postre: NumberDecimal("55"),
+        descripcion_postre: "Muffin de arándanos",
+        recurso: {
+            id_recurso: 8,
+            cantidad_existente: 60,
+            fecha_caducidad: new Date("2024-01-01")
+        },
+        margen_de_ganancia: NumberDecimal("25")
+    },
+    {
+        id_postre: 11,
+        precio_postre: NumberDecimal("35"),
+        descripcion_postre: "Brownie de nuez",
+        recurso: {
+            id_recurso: 9,
+            cantidad_existente: 80,
+            fecha_caducidad: new Date("2024-05-30")
+        },
+        margen_de_ganancia: NumberDecimal("15")
+    },
+    {
+        id_postre: 12,
+        precio_postre: NumberDecimal("38"),
+        descripcion_postre: "Galleta de chispas de chocolate",
+        recurso: {
+            id_recurso: 10,
+            cantidad_existente: 30,
+            fecha_caducidad: new Date("2023-11-10")
+        },
+        margen_de_ganancia: NumberDecimal("15")
+    }
+]);

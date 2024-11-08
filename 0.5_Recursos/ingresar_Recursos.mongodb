@@ -1,12 +1,105 @@
 
 use("Alma_de_Cafe");
-db.recursos.insertOne({
-    id_recurso: 1,
-    nombre_recurso: "Harina de Trigo",
-    tipo_recurso: "INGREDIENTE",
-    cantidad_existente: 100,
-    descripcion_recurso: "Harina de trigo para uso en panadería y repostería",
-    costo_recurso: "50.00 MXN por kg",
-    fecha_caducidad: new Date("2024-11-30"),
-    lugar_se_encuentra: "BODEGA"
-});
+
+[
+    {
+        "id_recurso": 1,
+        "nombre_recurso": "Azúcar",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 100,
+        "descripcion_recurso": "Endulzante refinado",
+        "costo_recurso": "20.00",
+        "fecha_caducidad": {"$date": "2025-01-01T00:00:00Z"},
+        "lugar_se_encuentra": "BODEGA"
+    },
+    {
+        "id_recurso": 2,
+        "nombre_recurso": "Leche",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 200,
+        "descripcion_recurso": "Leche fresca entera",
+        "costo_recurso": "15.00",
+        "fecha_caducidad": {"$date": "2023-12-31T00:00:00Z"},
+        "lugar_se_encuentra": "REFRIGERADOR"
+    },
+    {
+        "id_recurso": 3,
+        "nombre_recurso": "Cafe",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 150,
+        "descripcion_recurso": "Cajas de Fresas congeladas",
+        "costo_recurso": "50.00",
+        "fecha_caducidad": {"$date": "2024-05-30T00:00:00Z"},
+        "lugar_se_encuentra": "BODEGA"
+    },
+    {
+        "id_recurso": 4,
+        "nombre_recurso": "Té Verde",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 50,
+        "descripcion_recurso": "Hojas secas de té verde",
+        "costo_recurso": "30.00",
+        "fecha_caducidad": {"$date": "2024-06-15T00:00:00Z"},
+        "lugar_se_encuentra": "REPISA"
+    },
+    {
+        "id_recurso": 5,
+        "nombre_recurso": "Té Negro",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 40,
+        "descripcion_recurso": "Hojas secas de té negro",
+        "costo_recurso": "35.00",
+        "fecha_caducidad": {"$date": "2024-06-20T00:00:00Z"},
+        "lugar_se_encuentra": "REPISA"
+    },
+    {
+        "id_recurso": 6,
+        "nombre_recurso": "Fresas",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 70,
+        "descripcion_recurso": "Fresas frescas",
+        "costo_recurso": "25.00",
+        "fecha_caducidad": {"$date": "2023-10-10T00:00:00Z"},
+        "lugar_se_encuentra": "REFRIGERADOR"
+    },
+    {
+        "id_recurso": 7,
+        "nombre_recurso": "Limones",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 90,
+        "descripcion_recurso": "Limones frescos",
+        "costo_recurso": "10.00",
+        "fecha_caducidad": {"$date": "2023-10-15T00:00:00Z"},
+        "lugar_se_encuentra": "REFRIGERADOR"
+    },
+    {
+        "id_recurso": 8,
+        "nombre_recurso": "Hielos",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 60,
+        "descripcion_recurso": "Bolsas de Hielo",
+        "costo_recurso": "20.00",
+        "fecha_caducidad": {"$date": "2024-01-01T00:00:00Z"},
+        "lugar_se_encuentra": "BODEGA"
+    },
+    {
+        "id_recurso": 9,
+        "nombre_recurso": "Chocolate",
+        "tipo_recurso": "INGREDIENTE",
+        "cantidad_existente": 80,
+        "descripcion_recurso": "Chocolate amargo en barra",
+        "costo_recurso": "40.00",
+        "fecha_caducidad": {"$date": "2024-05-30T00:00:00Z"},
+        "lugar_se_encuentra": "REPISA"
+    },
+    {
+        "id_recurso": 10,
+        "nombre_recurso": "Brownie de chocolate",
+        "tipo_recurso": "POSTRE",
+        "cantidad_existente": 30,
+        "descripcion_recurso": "Brownie de chocolate suave",
+        "costo_recurso": "25.00",
+        "fecha_caducidad": {"$date": "2023-11-10T00:00:00Z"},
+        "lugar_se_encuentra": "BODEGA"
+    }
+]
